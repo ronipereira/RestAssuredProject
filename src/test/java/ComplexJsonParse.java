@@ -1,5 +1,6 @@
 import files.payload;
 import io.restassured.path.json.JsonPath;
+import org.apache.http.io.SessionOutputBuffer;
 
 public class ComplexJsonParse {
     public static void main(String[] args){
@@ -19,7 +20,26 @@ public class ComplexJsonParse {
         //get all courses title present in courses
         for(int i = 0; i < count; i++)
         {
-            js.get("courses["+ i +"].title");
+            String courseTitles = js.get("courses["+ i +"].title");
+            String coursePrices = js.get("courses["+ i +"].price");
+
+            System.out.println(courseTitles);
+            System.out.println(coursePrices);
+        }
+
+        //Print number of copies once course title equal to RPA
+        for(int i = 0; i < count; i++)
+        {
+            String courseTitles = js.get("courses["+ i +"].title");
+
+            if(courseTitles.equalsIgnoreCase("RPA"))
+            {
+                int copies = js.get("courses["+ i +"].copies");
+                System.out.println(copies);
+                break;
+            }
+
+
         }
 
     }
