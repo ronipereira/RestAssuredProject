@@ -1,8 +1,7 @@
 package files;
 
 public class payload {
-    public static String AddPlace()
-    {
+    public static String AddPlace() {
         return "{\n" +
                 "  \"location\": {\n" +
                 "    \"lat\": -38.383494,\n" +
@@ -21,8 +20,7 @@ public class payload {
                 "}";
     }
 
-    public static String UpdatePlace(String place_id, String newAddress)
-    {
+    public static String UpdatePlace(String place_id, String newAddress) {
         return "{\n" +
                 "\"place_id\":\"" + place_id + "\",\n" +
                 "\"address\":\"" + newAddress + "\",\n" +
@@ -30,7 +28,7 @@ public class payload {
                 "}";
     }
 
-    public static String CoursePrice(){
+    public static String CoursePrice() {
         return "{\n" +
                 "    \"dashboard\": {\n" +
                 "        \"purchaseAmount\": 910,\n" +
@@ -54,5 +52,15 @@ public class payload {
                 "        }\n" +
                 "    ]\n" +
                 "}";
+    }
+
+    public static String AddBook()
+    {
+        return "{\n" +
+                "\"name\":\"Learn Appium Automation with Java\",\n" +
+                "\"isbn\":\"bcd\",\n" +
+                "\"aisle\":\"2926088\",\n" +
+                "\"author\":\"John foer\"\n" +
+                "}\n";
     }
 }
