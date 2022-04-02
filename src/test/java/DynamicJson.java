@@ -3,17 +3,18 @@ import static io.restassured.RestAssured.*;
 import files.ReusableMethods;
 import files.payload;
 import io.restassured.path.json.JsonPath;
-import org.junit.Test;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class DynamicJson {
 
-    @Test
-    public void addBook()
+    @Test(dataProvider = "BooksData")
+    public void addBook(String isbn, String aisle)
     {
         baseURI = "https://rahulshettyacademy.com";
 
         String response = given().header("Content-Type", "application/json").
-                body(payload.AddBook()).
+                body(payload.AddBook(isbn, aisle)).
                 when()
                 .post("/Library/Addbook.php")
                 .then().log().all().assertThat().statusCode(200)
@@ -24,5 +25,11 @@ public class DynamicJson {
         String id = js.get("ID");
         System.out.println(id);
 
+    }
+
+    @DataProvider(name = "BooksData")
+    public Object[][] getData()
+    {
+        return new Object[][] {{"haruuf","9269"}, {"yshfp","9759"}, {"osgdjr","9658"}};
     }
 }
