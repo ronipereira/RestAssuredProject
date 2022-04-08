@@ -63,4 +63,23 @@ public class payload {
                 "\"author\":\"John foer\"\n" +
                 "}\n";
     }
+
+    public static String JiraAuthentication(String username, String password)
+    {
+        return "{\n" +
+                "    \"username\": \"" + username + "\",\n" +
+                "    \"password\": \"" + password + "\"\n" +
+                "}";
+    }
+
+    public static String AddComment()
+    {
+        return "{\n" +
+                "    \"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\",\n" +
+                "    \"visibility\": {\n" +
+                "        \"type\": \"role\",\n" +
+                "        \"value\": \"Administrators\"\n" +
+                "    }\n" +
+                "}";
+    }
 }
