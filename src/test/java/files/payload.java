@@ -72,10 +72,10 @@ public class payload {
                 "}";
     }
 
-    public static String AddComment()
+    public static String AddComment(String comment)
     {
         return "{\n" +
-                "    \"body\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\",\n" +
+                "    \"body\": \"" + comment + "\",\n" +
                 "    \"visibility\": {\n" +
                 "        \"type\": \"role\",\n" +
                 "        \"value\": \"Administrators\"\n" +
